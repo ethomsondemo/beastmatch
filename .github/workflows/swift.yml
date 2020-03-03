@@ -1,0 +1,11 @@
+name: CI
+
+on: [ push, pull_request ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Test
+      run: xcodebuild test -project BeastMatch.xcodeproj -scheme BeastMatchTests -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 11,OS=13.2.2"
